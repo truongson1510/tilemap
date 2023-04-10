@@ -47,9 +47,3 @@ TagManager:
   - name: Wall
     uniqueID: 3696965519
     locked: 0
-  - name: Furnitures
-    uniqueID: 1685406823
-    locked: 0
-  - name: Player
-    uniqueID: 2929597565
-    locked: 0
