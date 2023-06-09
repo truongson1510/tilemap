@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -10209,7 +10209,6 @@ TextureImporter:
       burger_196: -949768640
       burger_320: -1290168732
       burger_457: 1730621359
-      burger_363: 1456775692
       burger_362: 1867612667
       burger_408: -1517551911
       burger_352: 746294505
@@ -10230,13 +10229,13 @@ TextureImporter:
       burger_429: -547455966
       burger_237: -2111475766
       burger_83: 1662256475
-      burger_114: -1490473990
       burger_252: -962385775
+      burger_114: -1490473990
       burger_400: 1643850500
       burger_365: 810441357
       burger_149: -659576481
-      burger_385: -1736463201
       burger_470: -529627147
+      burger_385: -1736463201
       burger_384: 459630025
       burger_96: 2123451724
       burger_324: -2055802660
@@ -10268,23 +10267,23 @@ TextureImporter:
       burger_30: -1199690348
       burger_35: 1906580617
       burger_38: -1055279828
-      burger_106: 897957113
+      burger_92: 472991093
       burger_72: 414299202
       burger_334: -617355284
-      burger_225: -227670494
+      burger_106: 897957113
       burger_426: 1042857918
-      burger_92: 472991093
-      burger_76: -624033180
-      burger_366: -1789995161
       burger_215: 1193603321
-      burger_179: 1345013555
+      burger_225: -227670494
+      burger_76: -624033180
       burger_311: 149892738
+      burger_366: -1789995161
+      burger_179: 1345013555
+      burger_401: -1357426819
       burger_27: -1080767330
-      burger_115: 1924221930
       burger_230: -914560225
       burger_242: -1610548291
       burger_67: 1841452355
-      burger_401: -1357426819
+      burger_115: 1924221930
       burger_332: 245809022
       burger_449: -694710110
       burger_250: -421876164
@@ -10513,8 +10512,8 @@ TextureImporter:
       burger_9: 827861811
       burger_98: -512112235
       burger_45: 1508597626
-      burger_142: -358559156
       burger_197: -569077714
+      burger_142: -358559156
       burger_292: 7247429
       burger_171: 113099208
       burger_344: -2059492697
@@ -10684,6 +10683,7 @@ TextureImporter:
       burger_261: -358297920
       burger_349: 1783841529
       burger_7: -1566832537
+      burger_363: 1456775692
       burger_122: -1361039605
       burger_157: 105758281
   spritePackingTag: 
