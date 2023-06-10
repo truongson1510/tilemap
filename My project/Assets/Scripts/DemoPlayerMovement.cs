@@ -36,8 +36,8 @@ public class DemoPlayerMovement : MonoBehaviour
         movement.y  = Input.GetAxisRaw("Vertical");
 
         animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        animator.SetFloat("Vertical",   movement.y);
+        animator.SetFloat("Speed",      movement.sqrMagnitude);
     }
 
     private void FixedUpdate()

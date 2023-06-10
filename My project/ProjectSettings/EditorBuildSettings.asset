@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 4b4b97be31f524b449aac268e3dd9f19
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 6e3bd251e3070594facb22bf3e20ad95
+  - enabled: 1
+    path: Assets/Scenes/Vampire Survivor 2.unity
+    guid: 3df95adc3e72eb748b655c6eba2bb8a4
+  - enabled: 1
     path: Assets/Scenes/Vampire Survivor.unity
     guid: 09abef89c099bcf4490b59520b703364
   m_configObjects: {}
