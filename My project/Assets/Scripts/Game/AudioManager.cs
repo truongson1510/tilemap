@@ -39,19 +39,10 @@ public class AudioManager : Singleton<AudioManager>
     [ShowIf("settings")]
     [SerializeField] private AudioClip sound_wood;
 
-    [Header(" Others --------------------------------------------")]
-
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_gravity_down;
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_gravity_up;
-
     [Header(" UI ------------------------------------------------")]
 
     [ShowIf("settings")]
     [SerializeField] private AudioClip sound_button_click;
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_camera_shot;
 
     [Header(" Win/Lose ------------------------------------------")]
 
@@ -122,19 +113,8 @@ public class AudioManager : Singleton<AudioManager>
                 audio = sound_wood;
                 break;
 
-
-            case Sound.gravity_down:
-                audio = sound_gravity_down;
-                break;
-            case Sound.gravity_up:
-                audio = sound_gravity_up;
-                break;
-
             case Sound.button_click:
                 audio = sound_button_click;
-                break;
-            case Sound.camera_shot:
-                audio = sound_camera_shot;
                 break;
 
             case Sound.lose:

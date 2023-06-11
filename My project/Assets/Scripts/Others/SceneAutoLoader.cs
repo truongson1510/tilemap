@@ -15,7 +15,9 @@ public class SceneAutoLoader : MonoBehaviour
     public enum SceneIndexes
     {
         Preload = 0,
-        Main    = 1
+        Main    = 1,
+        Level1  = 2,
+        Level2  = 3
     }
 
     #endregion

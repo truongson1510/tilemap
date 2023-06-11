@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TableManager : MonoBehaviour
 {
@@ -10,21 +11,21 @@ public class TableManager : MonoBehaviour
     [SerializeField] GameObject[]       allIngredient;
     [SerializeField] List<FoodRecipe>   recipes = new();
 
-    [SerializeField] int        selectedFood;
-    [SerializeField] int        selectedTime;
+    [SerializeField] int                selectedFood;
+    [SerializeField] int                selectedTime;
 
-    [SerializeField] GameObject foodtoShow;
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject playerPoint;
-    [SerializeField] Animator   playerAnimator;
+    [SerializeField] GameObject         foodtoShow;
+    [SerializeField] GameObject         player;
+    [SerializeField] GameObject         playerPoint;
+    [SerializeField] Animator           playerAnimator;
 
-    [SerializeField] Vector3    initialPos;
+    [SerializeField] Vector3            initialPos;
 
-    [SerializeField] bool       playerReached = false;
-    [SerializeField] bool       foodServed = false;
+    [SerializeField] bool               playerReached = false;
+    [SerializeField] bool               foodServed = false;
 
-
-    [SerializeField] Text       timeText;
+    [SerializeField] TMP_Text           timeText;
+    [SerializeField] GameObject         timmer;
 
     int rand = 0;
 
@@ -45,6 +46,7 @@ public class TableManager : MonoBehaviour
         playerReached = false;
         foodServed = false;
         foodtoShow.SetActive(false);
+        timmer.SetActive(false);
         player.transform.position = initialPos;
         rand = Random.Range(0, 2);
         selectedFood = Random.Range(0, 4);
@@ -63,6 +65,7 @@ public class TableManager : MonoBehaviour
     IEnumerator MovePlayer()
     {
         playerAnimator.SetTrigger("Move");
+
         while (player.transform.position!=playerPoint.transform.position)
         {
             player.transform.position = Vector3.MoveTowards(player.transform.position, playerPoint.transform.position, 5 * Time.fixedDeltaTime);
@@ -70,6 +73,8 @@ public class TableManager : MonoBehaviour
         }
 
         playerReached = true;
+        timmer.SetActive(true);
+
         playerAnimator.SetTrigger("Sit");
 
         player.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = recipes[selectedFood].foodImage;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LiveManager : MonoBehaviour
 {
     public static LiveManager instance;
-    [SerializeField] GameObject panal;
+
     [SerializeField] Text liveText;
     [SerializeField] int liveCount;
 
@@ -25,11 +25,14 @@ public class LiveManager : MonoBehaviour
     {
         if (liveCount <= 0)
         {
-            panal.SetActive(true);
+            //VideoManager.Instance.PlayGameoverVideo
+
             liveCount = 0;
             liveText.text = liveCount.ToString();
+
             FoodManager.Instance.TurnOffButtons();
             FoodManager.Instance.TurnOff();
+
             gameObject.SetActive(false);
         }
     }

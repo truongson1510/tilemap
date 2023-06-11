@@ -3,7 +3,7 @@ guid: 3565738808463764080a5000fe9a4b0c
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 100
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
@@ -12,7 +12,7 @@ TrueTypeFontImporter:
   - Pixeloid Sans
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 3
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
