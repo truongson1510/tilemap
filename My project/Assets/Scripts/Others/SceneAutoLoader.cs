@@ -12,6 +12,7 @@ public class SceneAutoLoader : MonoBehaviour
 {
     #region Enums
 
+    [Serializable]
     public enum SceneIndexes
     {
         Preload = 0,

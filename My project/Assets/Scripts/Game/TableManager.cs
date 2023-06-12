@@ -26,6 +26,7 @@ public class TableManager : MonoBehaviour
 
     [SerializeField] TMP_Text           timeText;
     [SerializeField] GameObject         timmer;
+    [SerializeField] SpriteRenderer     order;
 
     int rand = 0;
 
@@ -59,6 +60,7 @@ public class TableManager : MonoBehaviour
             selectedTime = 60;
         }
         timeText.text=selectedTime.ToString();
+
         StartCoroutine(MovePlayer());
     }
 
@@ -77,8 +79,10 @@ public class TableManager : MonoBehaviour
 
         playerAnimator.SetTrigger("Sit");
 
-        player.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = recipes[selectedFood].foodImage;
+        if (order != null) { order.sprite = recipes[selectedFood].foodImage; }
+        
         player.transform.GetChild(0).gameObject.SetActive(true);
+
         FoodManager.Instance.TurnOnButtons();
         StartCoroutine(timeRoutine());
         yield return new WaitForSeconds(2f);

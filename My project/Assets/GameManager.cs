@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SceneAutoLoader;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -18,6 +19,21 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
     #region Public Methods
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sceneIndex"></param>
+    public static void LoadScene(SceneIndexes sceneIndex)
+    {
+        SceneManager.LoadScene((int)sceneIndex);
+    }
+
+    public static void Loadlevel1()
+    {
+        LoadScene(SceneIndexes.Level1);
+    }
+
     #endregion
 
     #region Protected Methods
