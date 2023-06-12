@@ -20,6 +20,9 @@ namespace BacSonStudio
 		#endregion
 
 		#region Properties
+
+		private Tween animation;
+
 		#endregion
 
 		#region Unity Methods
@@ -32,20 +35,25 @@ namespace BacSonStudio
 			uiButton.onClick.AddListener(PunchScale);
 		}
 
-		#endregion
+        private void OnDestroy()
+        {
+			if(animation != null) { DOTween.Kill(animation); }
+        }
 
-		#region Public Methods
-		#endregion
+        #endregion
 
-		#region Protected Methods
-		#endregion
+        #region Public Methods
+        #endregion
 
-		#region Private Methods
+        #region Protected Methods
+        #endregion
 
-		private void PunchScale()
+        #region Private Methods
+
+        private void PunchScale()
         {
 			// Play sound effect
-			//AudioManager.Instance.PlayOneShot(Sound.button_click);
+			AudioManager.Instance.PlayOneShot(Sound.button);
 
 			// Kill any currently running tweens on this transform
 			transform.DOKill();
@@ -54,7 +62,7 @@ namespace BacSonStudio
 			transform.localScale = originalScale;
 
 			// Punch the scale of the button
-			transform.DOPunchScale(originalScale * scaleMultiplier, duration, 1, 0).SetEase(Ease.InQuad).SetUpdate(true);
+			animation = transform.DOPunchScale(originalScale * scaleMultiplier, duration, 1, 0).SetEase(Ease.InQuad).SetUpdate(true);
 		}
 
 		#endregion

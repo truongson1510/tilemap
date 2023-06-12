@@ -29,6 +29,7 @@ public class TableManager : MonoBehaviour
     [SerializeField] SpriteRenderer     order;
 
     int rand = 0;
+    bool lowPlayed;
 
     private void Awake()
     {
@@ -44,23 +45,24 @@ public class TableManager : MonoBehaviour
 
     void InitializeTable()
     {
-        playerReached = false;
-        foodServed = false;
+        lowPlayed       = false;
+        playerReached   = false;
+        foodServed      = false;
+
         foodtoShow.SetActive(false);
         timmer.SetActive(false);
-        player.transform.position = initialPos;
-        rand = Random.Range(0, 2);
-        selectedFood = Random.Range(0, 4);
-        if (rand==0)
-        {
-            selectedTime = 30;
-        }
-        else
-        {
-            selectedTime = 60;
-        }
-        timeText.text=selectedTime.ToString();
 
+        player.transform.position = initialPos;
+
+        rand            = Random.Range(0, 2);
+        selectedFood    = Random.Range(0, 4);
+
+        if (rand==0)
+        { selectedTime = 30; }
+        else
+        { selectedTime = 60; }
+
+        timeText.text=selectedTime.ToString();
         StartCoroutine(MovePlayer());
     }
 
@@ -91,13 +93,23 @@ public class TableManager : MonoBehaviour
 
     IEnumerator timeRoutine()
     {
-        while ((selectedTime>0) && foodServed==false)
+        while ((selectedTime>0) && !foodServed)
         {
             yield return new WaitForSeconds(1);
+
             selectedTime--;
             timeText.text = selectedTime.ToString();
-            if ((selectedTime<=0)&& foodServed == false)
+
+            if(selectedTime < 3 && !foodServed && !lowPlayed)
             {
+                AudioManager.Instance.PlayOneShot(Sound.timeLow);
+                lowPlayed = true;
+            }
+
+            if ((selectedTime<=0)&& !foodServed)
+            {
+                AudioManager.Instance.PlayOneShot(Sound.failToServe);
+
                 StopAllCoroutines();
                 LiveManager.instance.DecreaseLive();
                 InitializeTable();
@@ -106,16 +118,17 @@ public class TableManager : MonoBehaviour
     }
     public void CheckFood(GameObject gameObject)
     {
-        if (playerReached == true)
+        if (playerReached)
         {
-
-
             if (recipes[selectedFood].ingredients[recipes[selectedFood].count].gameObject == gameObject)
             {
                 recipes[selectedFood].count++;
                 if (recipes[selectedFood].count == recipes[selectedFood].ingredients.Length)
                 {
                     foodServed = true;
+
+                    AudioManager.Instance.PlayOneShot(Sound.doneCooking);
+
                     foodtoShow.GetComponent<SpriteRenderer>().sprite = recipes[selectedFood].foodImage;
                     foodtoShow.SetActive(true);
                     playerReached = false;

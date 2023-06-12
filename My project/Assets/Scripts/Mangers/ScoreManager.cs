@@ -25,13 +25,16 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreCount >= 150)
         {
-            SceneManager.LoadScene(1);
+            VideoManager.Instance.SetLevelActive(false);
+            VideoManager.Instance.PlayEndingrVideo(() => { GameManager.Instance.LoadScene(SceneAutoLoader.SceneIndexes.Main); });
+
+            gameObject.SetActive(false);
         }
     }
 
     public void IncreaseScore()
     {
-        scoreCount=scoreCount+25;
-        scoreText.text = scoreCount.ToString();
+        scoreCount      += 25;
+        scoreText.text  = scoreCount.ToString();
     }
 }

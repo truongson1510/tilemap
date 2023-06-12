@@ -24,12 +24,12 @@ public class GameManager : Singleton<GameManager>
     /// 
     /// </summary>
     /// <param name="sceneIndex"></param>
-    public static void LoadScene(SceneIndexes sceneIndex)
+    public void LoadScene(SceneIndexes sceneIndex)
     {
         SceneManager.LoadScene((int)sceneIndex);
     }
 
-    public static void Loadlevel1()
+    public void Loadlevel1()
     {
         LoadScene(SceneIndexes.Level1);
     }

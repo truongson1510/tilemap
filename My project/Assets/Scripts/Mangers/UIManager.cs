@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     #region Inspector Variables
 
     [SerializeField] private GameObject recipeCanvas;
+    //[SerializeField] private GameObject menuCanvas;
 
     #endregion
 
@@ -36,6 +37,12 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Public Methods
+
+    /*public void ShowMenuPanel(bool state)
+    {
+        if (menuCanvas != null) { menuCanvas.SetActive(state); }
+    }*/
+
     #endregion
 
     #region Protected Methods

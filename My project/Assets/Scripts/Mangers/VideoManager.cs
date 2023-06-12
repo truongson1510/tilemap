@@ -39,7 +39,7 @@ public class VideoManager : Singleton<VideoManager>
 
         PlayOpeningVideo(() => 
         {
-            level.SetActive(true);
+            SetLevelActive(true);
             openingVideo.gameObject.SetActive(false);
         });
     }
@@ -48,21 +48,29 @@ public class VideoManager : Singleton<VideoManager>
 
     #region Public Methods
 
+    public void SetLevelActive(bool state)
+    {
+        if (level != null) { level.SetActive(state); }
+    }
+
     public void PlayEndingrVideo(Action onCompleteAction = null)
     {
         endingVideo.Play();
+        AudioManager.Instance.PlayOneShot(Sound.win);
         onEndingCompleteAction = onCompleteAction;
     }
 
     public void PlayGameoverVideo(Action onCompleteAction = null)
     {
         gameoverVideo.Play();
+        AudioManager.Instance.PlayOneShot(Sound.lose);
         onGameoverCompleteAction = onCompleteAction;
     }
 
     public void PlayOpeningVideo(Action onCompleteAction = null)
     {
         openingVideo.Play();
+        AudioManager.Instance.PlayOneShot(Sound.open);
         onOpeningCompleteAction = onCompleteAction;
     }
 

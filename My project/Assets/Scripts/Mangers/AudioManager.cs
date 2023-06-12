@@ -13,31 +13,16 @@ public class AudioManager : Singleton<AudioManager>
 
     [SerializeField] private bool settings;
 
-    [Header(" Character -----------------------------------------")]
+    [Header(" Game ---------------------------------------------")]
 
     [ShowIf("settings")]
-    [SerializeField] private List<AudioClip> sound_dispose;
+    [SerializeField] private AudioClip sound_done_cooking;
     [ShowIf("settings")]
-    [SerializeField] private List<AudioClip> sound_help;
+    [SerializeField] private AudioClip sound_running_low;
     [ShowIf("settings")]
-    [SerializeField] private List<AudioClip> sound_hit;
+    [SerializeField] private AudioClip sound_fail_to_server;
     [ShowIf("settings")]
-    [SerializeField] private List<AudioClip> sound_yell;
-
-    [Header(" Elements -----------------------------------------")]
-
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_blackHole;
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_explode;
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_rope;
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_spike;
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_spikeBall;
-    [ShowIf("settings")]
-    [SerializeField] private AudioClip sound_wood;
+    [SerializeField] private AudioClip sound_wrong_ingredient;
 
     [Header(" UI ------------------------------------------------")]
 
@@ -46,6 +31,8 @@ public class AudioManager : Singleton<AudioManager>
 
     [Header(" Win/Lose ------------------------------------------")]
 
+    [ShowIf("settings")]
+    [SerializeField] private AudioClip sound_open;
     [ShowIf("settings")]
     [SerializeField] private AudioClip sound_lose;
     [ShowIf("settings")]
@@ -81,42 +68,26 @@ public class AudioManager : Singleton<AudioManager>
     {
         switch (soundType)
         {
-            case Sound.dispose:
-                audio = sound_dispose[Random.Range(0, sound_dispose.Count)];
+            case Sound.doneCooking:
+                audio = sound_done_cooking;
                 break;
-            case Sound.help:
-                audio = sound_help[Random.Range(0, sound_help.Count)];
+            case Sound.timeLow:
+                audio = sound_running_low;
                 break;
-            case Sound.hit:
-                audio = sound_hit[Random.Range(0, sound_hit.Count)];
+            case Sound.failToServe:
+                audio = sound_fail_to_server;
                 break;
-            case Sound.yell:
-                audio = sound_yell[Random.Range(0, sound_yell.Count)];
-                break;
-
-            case Sound.blackHole:
-                audio = sound_blackHole;
-                break;
-            case Sound.explode:
-                audio = sound_explode;
-                break;
-            case Sound.rope:
-                audio = sound_rope;
-                break;
-            case Sound.spike:
-                audio = sound_spike;
-                break;
-            case Sound.spikeBall:
-                audio = sound_spikeBall;
-                break;
-            case Sound.wood:
-                audio = sound_wood;
+            case Sound.wrongIngredient:
+                audio = sound_wrong_ingredient;
                 break;
 
-            case Sound.button_click:
+            case Sound.button:
                 audio = sound_button_click;
                 break;
 
+            case Sound.open:
+                audio = sound_open;
+                break;
             case Sound.lose:
                 audio = sound_lose;
                 break;

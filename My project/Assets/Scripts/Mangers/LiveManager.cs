@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LiveManager : MonoBehaviour
@@ -25,13 +26,14 @@ public class LiveManager : MonoBehaviour
     {
         if (liveCount <= 0)
         {
-            //VideoManager.Instance.PlayGameoverVideo
-
             liveCount = 0;
             liveText.text = liveCount.ToString();
 
             FoodManager.Instance.TurnOffButtons();
             FoodManager.Instance.TurnOff();
+
+            VideoManager.Instance.SetLevelActive(false);
+            VideoManager.Instance.PlayGameoverVideo(() => { GameManager.Instance.LoadScene(SceneAutoLoader.SceneIndexes.Main); });
 
             gameObject.SetActive(false);
         }
